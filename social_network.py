@@ -21,7 +21,7 @@ def manageAccountMenu():
     print("5. <- Go back ")
     return input("Please Choose a number: ")
 
-
+friends_list =[]
 #Create instance of main social network object
 ai_social_network = SocialNetwork()
 
@@ -45,7 +45,11 @@ if __name__ == "__main__":
                 if inner_menu_choice == "5":
                     break
                 elif inner_menu_choice == "2":
-                    ai_social_network.add_friend()
+                    person_object = input("Enter the name of the friend you want to add: ")
+                    for i in SocialNetwork.__init__():
+                        if i == person_object:
+                            Person(person_object).add_friend()
+                            break
                 else:
                     inner_menu_choice = social_network_ui.manageAccountMenu()
 
