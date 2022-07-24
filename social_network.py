@@ -1,4 +1,5 @@
 #Various import Statements can go here
+#from typing_extensions import Self
 from  social_network_classes import SocialNetwork,Person
 import social_network_ui
 
@@ -43,11 +44,13 @@ if __name__ == "__main__":
             while True:
                 if inner_menu_choice == "5":
                     break
+                elif inner_menu_choice == "2":
+                    ai_social_network.add_friend()
                 else:
                     inner_menu_choice = social_network_ui.manageAccountMenu()
 
         elif choice == "3":
-            print("Thank you for visiting. Goodbye3")
+            print("Thank you for visiting. Goodbye!")
             break
 
         else:
