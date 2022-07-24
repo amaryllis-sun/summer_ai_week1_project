@@ -19,7 +19,11 @@ class SocialNetwork:
 
     def  create_account(self):
         #implement function that creates account here
+        username = input("Enter your name: ")
+        userage = input("Enter your age: ") 
+        p1 = (self, username, userage)
         print("Creating ...")
+        print("Welcome", username + "!")
         pass
 
 
@@ -31,6 +35,9 @@ class Person:
 
     def add_friend(self, person_object):
         #implement adding friend. Hint add to self.friendlist
+        friend_name = input("Enter the name of the friend you want to add: ")
+        friend = (self, friend_name)
+        print(friend + " is added as a friend!")
         pass
 
     def send_message(self):
