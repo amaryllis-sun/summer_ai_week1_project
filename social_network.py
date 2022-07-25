@@ -16,10 +16,11 @@ def mainMenu():
 def manageAccountMenu():
     print("1. Edit my details")
     print("2. Add a friend")
-    print("3. View all my friends")
-    print("4. View all my messages")
-    print("5. Send a message")
-    print("6. <- Go back ")
+    print("3. Block a friend")
+    print("4. View all my friends")
+    print("5. View all my messages")
+    print("6. Send a message")
+    print("7. <- Go back ")
     return input("Please Choose a number: ")
 
 #Create instance of main social network object
@@ -45,19 +46,41 @@ if __name__ == "__main__":
 
         elif choice == "2":
             inner_menu_choice = social_network_ui.manageAccountMenu()
+        elif choice == "3":    
+                current_user = None
+                login = input("Please enter the username of the account you would like to sign into: ")
+                print("You are now signed in as " + login)
+        elif choice == "4":
+            print("Thank you for visiting. Goodbye!")
+            break
             #Handle inner menu here
-            while True:
-                if inner_menu_choice == "6":
+        while True:
+                #elif choice == "3":    
+                #current_user = None
+                #login = input("Please enter the username of the account you would like to sign into: ")
+                #print("You are now signed in as " + login)
+                for people in ai_social_network.list_of_people: 
+                    if people.id == login:
+                            current_user = people
+                if inner_menu_choice == "7":
                     break
                 elif inner_menu_choice == "2":
                     print("You are now in the Add Friend Menu")
                     person_object = input("Enter the name of the friend you want to add: ")
                     print(person_object + " is now added as a friend!")
                     for person in ai_social_network.list_of_people:
-                        if person.name == person_object:
+                        if person.id == person_object:
                             current_user.add_friend(person_object)
                             break
-                elif inner_menu_choice == "5":
+                elif inner_menu_choice == "3":
+                    print("You are now in the Block Menu")
+                    block_person = input("Enter the name of the friend you want to block: ")
+                    print(block_person + " is now blocked!")
+                    for people_ in ai_social_network.list_of_people:
+                        if people_.id == block_person:
+                            current_user.block(people_)
+                    break
+                elif inner_menu_choice == "6":
                     #send_message = input("Type the message that you would like to send: ")
                     print("You are now in the Send Message Menu")
                     friend_name = input("Enter the name of the friend you want to send a message to: ")
@@ -77,20 +100,14 @@ if __name__ == "__main__":
                     print("\nChanging information ...")
                     print("Account details changed!")
                     break
+                elif inner_menu_choice == "5": 
+                    print("You are now in the Messages Menu")
+
                 else:
                     inner_menu_choice = social_network_ui.manageAccountMenu()
 
-        elif choice == "3":
-            print("You are now in the Sign-In Menu")
-            login = input("Please enter the username of the account you would like to sign into: ")
-            print("You are now signed in as " + login)
-            for people in ai_social_network.list_of_people: 
-                if people == person_object:
-                    ai_social_network.current_user = found_person_object
-
-        elif choice == "4":
-            print("Thank you for visiting. Goodbye!")
-            break
+       # elif choice == "3":
+            #print("You are now in the Sign-In Menu")
 
         else:
             print("Your input is invalid. Try Again!")
