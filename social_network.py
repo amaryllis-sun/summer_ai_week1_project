@@ -63,7 +63,7 @@ if __name__ == "__main__":
                 #login = input("Please enter the username of the account you would like to sign into: ")
                 #print("You are now signed in as " + login)
                 for people in ai_social_network.list_of_people: 
-                    if people.id == login:
+                    if people == login:
                             current_user = people
                 if inner_menu_choice == "7":
                     break
@@ -74,7 +74,7 @@ if __name__ == "__main__":
                     for person in ai_social_network.list_of_people:
                         if person.id == person_object:
                             current_user.add_friend(person_object)
-                        break
+                    break
                 elif inner_menu_choice == "3":
                     print("\nYou are now in the Block Menu")
                     block_person = input("Enter the name of the friend you want to block: ")
@@ -86,7 +86,7 @@ if __name__ == "__main__":
                 elif inner_menu_choice == "6":
                     #send_message = input("Type the message that you would like to send: ")
                     print("\nYou are now in the Send Message Menu")
-                    friend_name = input("Enter the name of the friend you want to send a message to: ")
+                    friend_name = input("\nEnter the name of the friend you want to send a message to: ")
                     print #your friends
                     for people in ai_social_network.list_of_people: #change the for loop "ai_social_network.list_of_people" to your friends list
                         if people == friend_name:
@@ -104,6 +104,9 @@ if __name__ == "__main__":
                     break
                 elif inner_menu_choice == "5": 
                     print("You are now in the Messages Menu")
+                    print("\nYou have: 1 Message")
+                    message_list = ["Welcome! -Amaryllis"]
+                    print(message_list)
                     break
                 elif inner_menu_choice == "4": 
                     print("\nYou are now in the Friends Menu")
