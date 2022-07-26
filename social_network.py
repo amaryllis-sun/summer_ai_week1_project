@@ -53,6 +53,9 @@ if __name__ == "__main__":
         elif choice == "4":
             print("Thank you for visiting. Goodbye!")
             break
+       
+       # else:
+           # print("Your input is invalid. Try Again!")
             #Handle inner menu here
         while True:
                 #elif choice == "3":    
@@ -65,15 +68,15 @@ if __name__ == "__main__":
                 if inner_menu_choice == "7":
                     break
                 elif inner_menu_choice == "2":
-                    print("You are now in the Add Friend Menu")
+                    print("\nYou are now in the Add Friend Menu")
                     person_object = input("Enter the name of the friend you want to add: ")
                     print(person_object + " is now added as a friend!")
                     for person in ai_social_network.list_of_people:
                         if person.id == person_object:
                             current_user.add_friend(person_object)
-                            break
+                        break
                 elif inner_menu_choice == "3":
-                    print("You are now in the Block Menu")
+                    print("\nYou are now in the Block Menu")
                     block_person = input("Enter the name of the friend you want to block: ")
                     print(block_person + " is now blocked!")
                     for people_ in ai_social_network.list_of_people:
@@ -82,13 +85,12 @@ if __name__ == "__main__":
                     break
                 elif inner_menu_choice == "6":
                     #send_message = input("Type the message that you would like to send: ")
-                    print("You are now in the Send Message Menu")
+                    print("\nYou are now in the Send Message Menu")
                     friend_name = input("Enter the name of the friend you want to send a message to: ")
                     print #your friends
                     for people in ai_social_network.list_of_people: #change the for loop "ai_social_network.list_of_people" to your friends list
                         if people == friend_name:
                             current_user.send_message(friend_name)
-
                     send_to_friend = input("Please type your message: ")
                     print("Your message was sent to " + friend_name)
                     break
@@ -102,16 +104,17 @@ if __name__ == "__main__":
                     break
                 elif inner_menu_choice == "5": 
                     print("You are now in the Messages Menu")
+                    break
+                elif inner_menu_choice == "4": 
+                    print("\nYou are now in the Friends Menu")
+                    print(current_user.friendlist)
+                elif inner_menu_choice == "7":
+                    break
 
                 else:
                     inner_menu_choice = social_network_ui.manageAccountMenu()
-
-       # elif choice == "3":
-            #print("You are now in the Sign-In Menu")
-
         else:
             print("Your input is invalid. Try Again!")
-        
         #restart menu
         choice = social_network_ui.mainMenu()
 
