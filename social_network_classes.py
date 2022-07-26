@@ -21,11 +21,10 @@ class SocialNetwork:
         #implement function that creates account here
         username = input("Enter your name: ")
         userage = input("Enter your age: ") 
-        p1 = (self, username, userage)
+        p1 = Person(username, userage)
         print("Creating ...")
         print("Welcome", username + "!")
         self.list_of_people.append(p1)
-        pass
 
     def edit_details(self):
         #need to make function that changes all the values of p1 to this?? look at planning doc
@@ -44,6 +43,7 @@ class Person:
         self.year = age
         self.friendlist = []
         self.blocklist = []
+        self.messages = []
     def add_friend(self, person_object):
         #implement adding friend. Hint add to self.friendlist
         #person_object = input("Enter the name of the friend you want to add: ")
@@ -52,10 +52,12 @@ class Person:
         print(person_object + " is added as a friend!")
     def blocked(self, block_person):
         self.blocklist.append(block_person)
+        print("Blocking ...")
+        print(block_person + " is now blocked.")
     def send_message(self):
         #implement sending message to friend here
         input("Please type your message: ")
         pass
 
-    def messages(self):
+    def send_messages(self):
         pass
